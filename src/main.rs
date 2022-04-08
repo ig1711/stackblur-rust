@@ -14,7 +14,11 @@ fn main() {
 
     let stime = SystemTime::now();
     let hmm = stackblur::blur(bytes, info.width as usize, info.height as usize, 4, 23);
-    println!("{:?}", stime.elapsed().unwrap().as_millis());
+    let st = stime.elapsed().unwrap().as_millis();
+    println!("{:?}", st);
+    // computer gets stuck
+    // let _hmm = stackblur::mt_blur(bytes, info.width as usize, info.height as usize, 4, 23);
+    // println!("{:?}", stime.elapsed().unwrap().as_millis() - st);
 
     let path = Path::new(r"./out.png");
     let file = File::create(path).unwrap();
