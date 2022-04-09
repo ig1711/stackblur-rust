@@ -23,6 +23,7 @@ struct Args {
     #[clap(short, long, default_value_t = 21)]
     radius: u8,
 }
+
 fn main() {
     let args = Args::parse();
     let decoder = png::Decoder::new(File::open(&args.source).expect("Failed to open source file"));
