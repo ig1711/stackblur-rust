@@ -20,7 +20,7 @@ struct Args {
     destination: String,
 
     /// Radius
-    #[clap(short, long, default_value_t = 21)]
+    #[clap(short, long, default_value_t = 20)]
     radius: u8,
 }
 
@@ -46,7 +46,7 @@ fn main() {
         info.width as usize,
         info.height as usize,
         channels,
-        args.radius as usize,
+        args.radius,
     );
     let elapsed = stime.elapsed().expect("Failed to measure time");
     println!("Generated in: {:?} milliseconds", elapsed.as_millis());
