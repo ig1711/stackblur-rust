@@ -75,9 +75,10 @@ pub mod stackblur {
                             }
                         } else {
                             if idx < r {
-                                acc + data[rwc + width - channels + channel] as usize * (idx + 1)
+                                acc + data[rwc + (width - 1) * channels + channel] as usize
+                                    * (idx + 1)
                             } else {
-                                acc + data[rwc + width - channels + channel] as usize
+                                acc + data[rwc + (width - 1) * channels + channel] as usize
                                     * (radius - idx)
                             }
                         }
@@ -116,9 +117,12 @@ pub mod stackblur {
                             }
                         } else {
                             if idx < r {
-                                acc + hor_out[cc + height - channels + channel] as usize * (idx + 1)
+                                acc + hor_out[cc + (height - 1) * width * channels + channel]
+                                    as usize
+                                    * (idx + 1)
                             } else {
-                                acc + hor_out[cc + height - channels + channel] as usize
+                                acc + hor_out[cc + (height - 1) * width * channels + channel]
+                                    as usize
                                     * (radius - idx)
                             }
                         }
