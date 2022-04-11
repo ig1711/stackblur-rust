@@ -4,7 +4,7 @@ pub mod stackblur {
         data: &[u8],
         width: usize,
         height: usize,
-        channels: Channels,
+        channels: &Channels,
         radius: usize,
     ) -> Vec<u8> {
         match channels {
